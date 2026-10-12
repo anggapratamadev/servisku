@@ -654,3 +654,57 @@ td.empty,.empty{text-align:center;color:var(--muted);padding:34px 16px}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}
 }
+
+
+/* Mobile responsiveness fixes — Oct 2026 */
+@media (max-width: 760px) {
+  html, body { max-width: 100%; overflow-x: clip; }
+  .app-shell, .app-main, main, .main-content, .dashboard-content,
+  .panel, .card, .content-card, .page-content {
+    box-sizing: border-box;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .table-wrap, .table-responsive, .data-table-wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  table, .data-table {
+    max-width: 100%;
+  }
+  th, td {
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+  .form-grid, .form-row, .filter-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  input, select, textarea, button {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  img, video, iframe {
+    max-width: 100%;
+    height: auto;
+  }
+}
+@media (max-width: 420px) {
+  .table-wrap, .table-responsive, .data-table-wrap {
+    margin-inline: 0;
+  }
+  th, td {
+    padding: 8px 7px;
+    font-size: 12px;
+  }
+  .auth-shell, .auth-shell-v5 {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .auth-showcase, .auth-showcase-v5 {
+    display: none !important;
+  }
+  .auth-form-v5 {
+    width: 100%;
+    min-width: 0;
+  }
+}
