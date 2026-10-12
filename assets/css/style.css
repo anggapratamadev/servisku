@@ -655,6 +655,7 @@ td.empty,.empty{text-align:center;color:var(--muted);padding:34px 16px}
   *,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}
 }
 
+<<<<<<< Updated upstream
 
 /* Mobile responsiveness fixes — Oct 2026 */
 @media (max-width: 760px) {
@@ -707,4 +708,344 @@ td.empty,.empty{text-align:center;color:var(--muted);padding:34px 16px}
     width: 100%;
     min-width: 0;
   }
+=======
+/* Booking terbaru: tampilan responsif HP */
+.customer-booking-mobile {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .customer-booking-desktop {
+    display: none;
+  }
+
+  .customer-booking-mobile {
+    display: grid;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .customer-booking-card {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #fff;
+  }
+
+  .customer-booking-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .customer-booking-card-info {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .customer-booking-card-info > div {
+    display: grid;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .customer-booking-card-info small {
+    color: #64748b;
+    font-size: 12px;
+  }
+
+  .customer-booking-card-info span {
+    overflow-wrap: anywhere;
+  }
+
+  .customer-booking-detail {
+    display: inline-flex;
+    justify-content: center;
+    margin-top: 14px;
+  }
+}
+
+
+/* Perbaikan responsif tambahan untuk tabel dan konten HP */
+@media (max-width: 760px) {
+  .app-shell,
+  .main-content,
+  .panel,
+  .panel-heading,
+  .table-wrap {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .panel-heading {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Pesan kosong tidak ikut terpotong secara visual */
+  .data-table td.empty,
+  .data-table td[colspan],
+  .customer-empty {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    text-align: center;
+  }
+
+  .data-table td[colspan] .customer-empty {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .data-table td,
+  .data-table th {
+    overflow-wrap: anywhere;
+  }
+
+  .form-grid,
+  .form-row,
+  .filter-row,
+  .invoice-parties,
+  .report-grid {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  input,
+  select,
+  textarea {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .button,
+  a.button,
+  button.button {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  img,
+  canvas,
+  svg {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .topbar-left {
+    min-width: 0;
+  }
+
+  .topbar-left > div {
+    min-width: 0;
+  }
+
+  .topbar h1 {
+    overflow-wrap: anywhere;
+  }
+
+  .panel-heading h2 {
+    overflow-wrap: anywhere;
+  }
+
+  .table-wrap .data-table td.empty,
+  .table-wrap .data-table td[colspan] {
+    padding: 18px 10px;
+  }
+}
+
+
+/* Mobile UI fix v2: prevent empty states and table content from being clipped */
+@media (max-width: 760px) {
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .app-shell, .main-content, .content, .page-content,
+  .panel, .table-wrap, .panel-body {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Tables fit the phone viewport; long values wrap instead of forcing width */
+  .table-wrap .data-table {
+    width: 100%;
+    min-width: 0;
+    table-layout: fixed;
+    font-size: 11px;
+  }
+
+  .table-wrap .data-table th,
+  .table-wrap .data-table td {
+    padding: 9px 7px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    vertical-align: top;
+  }
+
+  .table-wrap .data-table th {
+    font-size: 10px;
+  }
+
+  /* Empty-state rows should occupy the full table width and stay centered */
+  .table-wrap .data-table td[colspan],
+  .table-wrap .data-table td.empty {
+    width: auto;
+    text-align: center !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+  }
+
+  .table-wrap .data-table td[colspan] > *,
+  .table-wrap .data-table td.empty > *,
+  .table-wrap .data-table .customer-empty {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .table-wrap .data-table td[colspan] .button,
+  .table-wrap .data-table td.empty .button {
+    white-space: normal;
+  }
+
+  .panel-heading {
+    min-width: 0;
+    align-items: flex-start;
+  }
+
+  .panel-heading > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .panel-heading h2,
+  .section-title,
+  .empty-state,
+  .empty-state p {
+    overflow-wrap: anywhere;
+  }
+
+  .form-grid > *, .form-row > *, .filter-row > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .table-wrap .data-table th,
+  .table-wrap .data-table td {
+    padding: 8px 5px;
+    font-size: 10px;
+  }
+
+  .table-wrap .data-table th {
+    font-size: 9px;
+  }
+
+  .panel, .customer-booking-panel {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+
+/* Mobile UI audit v3: compact, readable tables and login form on narrow screens */
+@media (max-width: 760px) {
+  html, body { width: 100%; max-width: 100%; }
+  .workspace-customer .app-shell,
+  .workspace-admin .app-shell,
+  .workspace-mechanic .app-shell,
+  .app-shell, .main-content, .page-content, .content,
+  .panel, .panel-body, .table-wrap { min-width: 0 !important; max-width: 100% !important; }
+  .table-wrap { overflow-x: auto !important; overscroll-behavior-x: contain; }
+  .table-wrap table.data-table { width: 100% !important; min-width: 0 !important; table-layout: fixed !important; }
+  .table-wrap table.data-table th,
+  .table-wrap table.data-table td { white-space: normal !important; overflow-wrap: anywhere; word-break: normal; }
+  .table-wrap table.data-table td[colspan] { text-align: center !important; }
+  .table-wrap table.data-table td[colspan] > div,
+  .table-wrap table.data-table td[colspan] .customer-empty,
+  .table-wrap table.data-table td[colspan] .empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; width: 100%; max-width: 100%; min-width: 0; margin: 0 auto; text-align: center; white-space: normal; overflow-wrap: anywhere; box-sizing: border-box; }
+  .table-wrap table.data-table td[colspan] p { white-space: normal; overflow-wrap: anywhere; }
+  .auth-container, .auth-shell-v5, .auth-form-v5, .auth-showcase-v5 { min-width: 0; max-width: 100%; box-sizing: border-box; }
+  .auth-container { padding: 12px !important; }
+  .auth-shell-v5 { width: 100% !important; }
+  .auth-form-v5 { padding: 24px 18px !important; }
+  .google-login-btn, .auth-submit-v5 { width: 100%; box-sizing: border-box; justify-content: center; }
+  .auth-form-v5 input, .auth-form-v5 button { max-width: 100%; }
+  .customer-welcome, .customer-attention, .panel-heading { min-width: 0; }
+  .customer-welcome > *, .customer-attention > *, .panel-heading > * { min-width: 0; max-width: 100%; }
+}
+@media (max-width: 420px) {
+  .main-content { padding-left: 12px !important; padding-right: 12px !important; }
+  .panel { padding-left: 12px !important; padding-right: 12px !important; }
+  .auth-container { padding: 8px !important; }
+  .auth-form-v5 { padding: 20px 14px !important; }
+  .table-wrap table.data-table th, .table-wrap table.data-table td { padding: 7px 5px !important; font-size: 10px; }
+}
+
+
+/* Mobile QA v4: prevent horizontal page overflow without squeezing tables excessively */
+@media (max-width: 760px) {
+  html, body { max-width: 100%; overflow-x: clip; }
+  .app-shell, .main-content, .page-content, .content, .dashboard-content,
+  .panel, .panel-body, .card, .customer-welcome, .customer-attention,
+  .customer-quick-grid, .customer-journey, .customer-chart-panel {
+    min-width: 0; max-width: 100%; box-sizing: border-box;
+  }
+  .table-wrap { width: 100%; max-width: 100%; min-width: 0; overflow-x: auto !important; }
+  .table-wrap .data-table { max-width: 100%; }
+  .table-wrap .data-table th, .table-wrap .data-table td {
+    white-space: normal !important; overflow-wrap: anywhere; vertical-align: top;
+  }
+  .table-wrap .data-table td[colspan] { text-align: center !important; }
+  .table-wrap .data-table td[colspan] > *,
+  .table-wrap .data-table td[colspan] .empty-state,
+  .table-wrap .data-table td[colspan] .customer-empty {
+    width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box;
+    margin-inline: auto; text-align: center; white-space: normal; overflow-wrap: anywhere;
+  }
+  .panel-heading { gap: 10px; flex-wrap: wrap; }
+  .panel-heading h2 { font-size: clamp(1rem, 4vw, 1.25rem); }
+  input, select, textarea, button, .button { max-width: 100%; box-sizing: border-box; }
+  .form-grid, .form-row, .filter-row { grid-template-columns: minmax(0, 1fr) !important; }
+  img, video, iframe { max-width: 100%; }
+}
+@media (max-width: 420px) {
+  .table-wrap .data-table th, .table-wrap .data-table td { padding: 7px 5px; }
+  .panel-heading .button { flex-shrink: 0; }
+  .auth-shell-v5 { grid-template-columns: minmax(0, 1fr) !important; }
+  .auth-showcase-v5 { display: none; }
+  .auth-form-v5 { width: 100%; min-width: 0; }
+>>>>>>> Stashed changes
 }

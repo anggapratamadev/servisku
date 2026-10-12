@@ -83,12 +83,85 @@ require '../includes/customer_header.php';
 </section>
 
 <section class="panel customer-booking-panel">
-  <div class="panel-heading"><div><span class="section-title">Aktivitas</span><h2>Booking Terbaru</h2></div><a class="button small secondary" href="history.php">Lihat Semua</a></div>
-  <div class="table-wrap"><table class="data-table"><tr><th>Tanggal</th><th>Kendaraan</th><th>Layanan</th><th>Status</th><th>Aksi</th></tr>
-  <?php foreach($latest as $x):?>
-  <tr><td><?=e(dashboard_date_label($x['booking_date']))?></td><td><strong><?=e($x['plate_number'])?></strong></td><td><?=e($x['service_name'])?></td><td><span class="badge badge-<?=$x['status']?>"><?=e(status_label($x['status']))?></span></td><td><a class="button small secondary" href="history.php?id=<?=$x['id']?>">Detail</a></td></tr>
-  <?php endforeach;?>
-  <?php if(!$latest):?><tr><td colspan="5"><div class="customer-empty"><span>📅</span><strong>Belum ada booking</strong><p>Mulai dengan membuat booking servis pertama Anda.</p><a class="button small" href="booking.php">Buat Booking</a></div></td></tr><?php endif;?>
-  </table></div>
+  <div class="panel-heading">
+    <div>
+      <span class="section-title">Aktivitas</span>
+      <h2>Booking Terbaru</h2>
+    </div>
+    <a class="button small secondary" href="history.php">Lihat Semua</a>
+  </div>
+
+  <?php if ($latest): ?>
+
+    <!-- Tampilan tabel untuk laptop -->
+    <div class="table-wrap customer-booking-desktop">
+      <table class="data-table">
+        <tr>
+          <th>Tanggal</th>
+          <th>Kendaraan</th>
+          <th>Layanan</th>
+          <th>Status</th>
+          <th>Aksi</th>
+        </tr>
+
+        <?php foreach ($latest as $x): ?>
+        <tr>
+          <td><?= e(dashboard_date_label($x['booking_date'])) ?></td>
+          <td><strong><?= e($x['plate_number']) ?></strong></td>
+          <td><?= e($x['service_name']) ?></td>
+          <td>
+            <span class="badge badge-<?= e($x['status']) ?>">
+              <?= e(status_label($x['status'])) ?>
+            </span>
+          </td>
+          <td>
+            <a class="button small secondary"
+               href="history.php?id=<?= (int)$x['id'] ?>">
+              Detail
+            </a>
+          </td>
+        </tr>
+        <?php endforeach; ?>
+      </table>
+    </div>
+
+    <!-- Tampilan kartu untuk HP -->
+    <div class="customer-booking-mobile">
+      <?php foreach ($latest as $x): ?>
+        <article class="customer-booking-card">
+          <div class="customer-booking-card-top">
+            <strong><?= e($x['plate_number']) ?></strong>
+            <span class="badge badge-<?= e($x['status']) ?>">
+              <?= e(status_label($x['status'])) ?>
+            </span>
+          </div>
+
+          <div class="customer-booking-card-info">
+            <div>
+              <small>Tanggal booking</small>
+              <span><?= e(dashboard_date_label($x['booking_date'])) ?></span>
+            </div>
+            <div>
+              <small>Layanan</small>
+              <span><?= e($x['service_name']) ?></span>
+            </div>
+          </div>
+
+          <a class="button small secondary customer-booking-detail"
+             href="history.php?id=<?= (int)$x['id'] ?>">
+            Lihat Detail →
+          </a>
+        </article>
+      <?php endforeach; ?>
+    </div>
+
+  <?php else: ?>
+    <div class="customer-empty">
+      <span>📅</span>
+      <strong>Belum ada booking</strong>
+      <p>Mulai dengan membuat booking servis pertama Anda.</p>
+      <a class="button small" href="booking.php">Buat Booking</a>
+    </div>
+  <?php endif; ?>
 </section>
 <?php require '../includes/customer_footer.php';?>

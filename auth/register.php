@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar - ServisKu</title>
-    <link rel="stylesheet" href="../assets/css/style.css?v=37">
+    <link rel="stylesheet" href="../assets/css/style.css?v=41">
 </head>
 <body>
 <div class="auth-container auth-v5">

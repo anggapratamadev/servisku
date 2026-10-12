@@ -15,7 +15,7 @@ if (isset($_SESSION['user_role'])) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ServisKu adalah platform manajemen servis kendaraan dan booking bengkel untuk customer, admin, dan mekanik.">
 <title>ServisKu — Manajemen Servis Kendaraan</title>
-<link rel="stylesheet" href="assets/css/style.css?v=37">
+<link rel="stylesheet" href="assets/css/style.css?v=41">
 </head>
 <body class="landing-page">
 <header class="landing-nav">

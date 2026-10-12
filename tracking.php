@@ -23,7 +23,7 @@ $index = match($status){ 'pending'=>0,'confirmed','waiting'=>1,'in_progress'=>2,
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title><?=e($pageTitle)?> - ServisKu</title>
-<link rel="stylesheet" href="assets/css/style.css?v=37">
+<link rel="stylesheet" href="assets/css/style.css?v=41">
 </head>
 <body class="tracking-page">
 <main class="tracking-shell">
