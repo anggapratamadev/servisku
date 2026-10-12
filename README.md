@@ -80,7 +80,7 @@ Status dan riwayat servis diperbarui
 4. Pilih database tersebut, lalu impor `database/servisku.sql`.
 5. Periksa `config/database.php`. Konfigurasi default Laragon menggunakan host `127.0.0.1`, database `servisku`, user `root`, dan password kosong. Sesuaikan jika konfigurasi lokal berbeda.
 6. Buka [http://localhost/servisku/](http://localhost/servisku/).
-7. Login dengan akun demo lokal di bawah, lalu coba alur servis.
+7. Login dengan akun demo lokal di bawah. Untuk urutan demonstrasi fitur, lihat [`docs/DEMO.md`](docs/DEMO.md).
 
 ### Perhatian sebelum impor database
 
@@ -92,7 +92,7 @@ Akun berikut disediakan untuk pengujian lokal setelah installer database diimpor
 
 | Peran | Email / username | Password |
 |---|---|---|
-| Admin | `admin@servisku.local` (username `admin` juga dapat digunakan jika didukung form login) | `admin123` |
+| Admin | `admin` atau `admin@servisku.local` | `admin123` |
 | Pelanggan | `customer@servisku.local` | `customer123` |
 | Mekanik | `mechanic@servisku.local` | `mechanic123` |
 
