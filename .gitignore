@@ -1,0 +1,24 @@
+# IDE/editor
+/.idea/
+/.vscode/
+*.swp
+*.swo
+
+# Environment and private configuration
+.env
+.env.*
+!.env.example
+/config/google.local.php
+
+# Logs and temporary files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# User uploads and generated private files
+/uploads/*
+!/uploads/.htaccess
+!/uploads/payment_proofs/
+/uploads/payment_proofs/*
+!/uploads/payment_proofs/.htaccess

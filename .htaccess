@@ -1,0 +1,19 @@
+Options -Indexes
+
+# Prevent direct access to private/configuration and source-control files.
+<FilesMatch "^(\.env|\.git|\.htaccess|composer\.(json|lock)|package(-lock)?\.json|phpunit\.xml|README\.md|CHANGELOG\.md)$">
+  Require all denied
+</FilesMatch>
+
+# Never serve SQL dumps, logs, backups, or editor temporary files.
+<FilesMatch "\.(sql|log|bak|old|orig|swp|dist)$">
+  Require all denied
+</FilesMatch>
+
+# Basic browser security headers. HSTS should be enabled at the host after HTTPS is confirmed.
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
