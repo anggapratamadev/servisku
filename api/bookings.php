@@ -26,7 +26,10 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $userId = (int) $_SESSION['user_id'];
-$role = (string) ($_SESSION['role'] ?? 'customer');
+$role = (string) ($_SESSION['user_role'] ?? $_SESSION['role'] ?? 'customer');
+if (!in_array($role, ['admin', 'mechanic', 'customer'], true)) {
+    api_json(['success' => false, 'message' => 'Role pengguna tidak diizinkan.'], 403);
+}
 
 try {
     if ($role === 'admin') {

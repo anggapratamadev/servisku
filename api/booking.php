@@ -31,7 +31,10 @@ if ($id < 1) {
 }
 
 $userId = (int) $_SESSION['user_id'];
-$role = (string) ($_SESSION['role'] ?? 'customer');
+$role = (string) ($_SESSION['user_role'] ?? $_SESSION['role'] ?? 'customer');
+if (!in_array($role, ['admin', 'mechanic', 'customer'], true)) {
+    api_json(['success' => false, 'message' => 'Role pengguna tidak diizinkan.'], 403);
+}
 
 try {
     $sql = "SELECT b.id, b.booking_date, b.status, b.complaint, b.created_at,
